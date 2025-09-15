@@ -58,3 +58,4 @@ function playGameRound(humanChoice) {
 rockButton.addEventListener('click', () => playGameRound('rock'));
 paperButton.addEventListener('click', () => playGameRound('paper'));
 scissorsButton.addEventListener('click', () => playGameRound('scissors'));
+ 
