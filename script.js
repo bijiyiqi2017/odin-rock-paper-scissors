@@ -27,12 +27,15 @@ function playGameRound(humanChoice) {
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "scissors" && computerChoice === "paper") ||
     (humanChoice === "paper" && computerChoice === "rock")
+    
   ) {
     roundResult += "You win this round!\n";
     humanScore++;
+    flashResults(); // trigger flash
   } else {
     roundResult += "Computer wins this round.\n";
     computerScore++;
+    flashResults(); // trigger flash
   }
 
   // Add running score
@@ -53,6 +56,15 @@ function playGameRound(humanChoice) {
     computerScore = 0;
   }
 }
+
+// Helper: add & remove flash animation
+function flashResults() {
+  resultsDiv.classList.add("flash");
+  setTimeout(() => {
+    resultsDiv.classList.remove("flash");
+  }, 900); // matches 3 flashes (0.3s * 3)
+}
+
 
 // Attach event listeners to buttons
 rockButton.addEventListener('click', () => playGameRound('rock'));
